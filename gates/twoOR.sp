@@ -1,0 +1,20 @@
+.INCLUDE 22nm_MGK.pm
+.OPTIONS GMIN=1e-020 ABSTOL=1e-18
+.INCLUDE twoNOR.sp
+.INCLUDE NOT.sp
+
+*Definizione dei parametri
+.PARAM Lmin=22n
+.PARAM Wmin=22n
+.PARAM Ldiff=44n
+.PARAM VDD=0.8
+.PARAM multiplier=1
+.global gnd vdd
+
+
+.subckt twoOR x y out
+x_NOR1 x y k twoNOR
+x_NOT1 k out NOT
+.ends
+
+.end
